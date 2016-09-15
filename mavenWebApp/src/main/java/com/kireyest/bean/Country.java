@@ -1,7 +1,7 @@
 package com.kireyest.bean;
 
 public class Country {
-
+	//Comment
 	 int id;  
 	 String countryName;   
 	 double salary;
