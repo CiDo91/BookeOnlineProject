@@ -11,27 +11,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kireyest.bean.Country;
+import com.kireyest.bean.Books;
 
 @RestController
 public class CountryController {
 	@CrossOrigin("http://localhost:3000")
 	 @RequestMapping(value = "/countries", method = RequestMethod.GET,headers="Accept=application/json")  
-	 public List<Country> getCountries()  
+	 public List<Books> getCountries()  
 	 {  
-	  List<Country> listOfCountries = new ArrayList<Country>();  
+	  List<Books> listOfCountries = new ArrayList<Books>();  
 	  listOfCountries=createCountryList();  
 	  return listOfCountries;  
 	  //Comment ss
 	 }  
 	  
 	 @RequestMapping(value = "/country/{id}", method = RequestMethod.GET,headers="Accept=application/json")  
-	 public Country getCountryById(@PathVariable int id)  
+	 public Books getCountryById(@PathVariable int id)  
 	 {  
-	  List<Country> listOfCountries = new ArrayList<Country>();  
+	  List<Books> listOfCountries = new ArrayList<Books>();  
 	  listOfCountries=createCountryList();  
 	  
-	  for (Country country: listOfCountries) {  
+	  for (Books country: listOfCountries) {  
 	   if(country.getId()==id)  
 	    return country;  
 	  }  
@@ -40,7 +40,7 @@ public class CountryController {
 	 }
 	 @CrossOrigin("http://localhost:3000")
 	 @RequestMapping(value="/addcountries/", method = RequestMethod.POST, consumes={MediaType.APPLICATION_JSON_VALUE}, headers="Accept=application/json", produces={MediaType.APPLICATION_JSON_VALUE})
-	 public Country addCountry(@RequestBody Country country){
+	 public Books addCountry(@RequestBody Books country){
 		 System.out.println("Country ID:" + country.getId() + " , " + "Country NAME: " + country.getCountryName());
 		 
 		 return country;
@@ -48,9 +48,9 @@ public class CountryController {
 	 
 	 @CrossOrigin("http://localhost:3000")
 	 @RequestMapping(value="/country/{id}", method=RequestMethod.DELETE, produces={"application/json"})
-	 public List<Country> deleteCountry(@PathVariable int id){
-		 List<Country> listOfCountries = this.getCountries();
-		 for(Country country: listOfCountries){
+	 public List<Books> deleteCountry(@PathVariable int id){
+		 List<Books> listOfCountries = this.getCountries();
+		 for(Books country: listOfCountries){
 			 if(country.getId() == id){
 				 listOfCountries.remove(country);
 				 System.out.println("The country with ID: " + country.getId() + " was been deleted");
@@ -61,14 +61,14 @@ public class CountryController {
 	 }
 	  
 	// Utiliy method to create country list.  
-	 public List<Country> createCountryList()  
+	 public List<Books> createCountryList()  
 	 {  
-	  Country indiaCountry=new Country(1, "India");  
-	  Country chinaCountry=new Country(4, "China");  
-	  Country nepalCountry=new Country(3, "Nepal");  
-	  Country bhutanCountry=new Country(2, "Bhutan");  
+	  Books indiaCountry=new Books(1, "India");  
+	  Books chinaCountry=new Books(4, "China");  
+	  Books nepalCountry=new Books(3, "Nepal");  
+	  Books bhutanCountry=new Books(2, "Bhutan");  
 	  
-	  List<Country> listOfCountries = new ArrayList<Country>();  
+	  List<Books> listOfCountries = new ArrayList<Books>();  
 	  listOfCountries.add(indiaCountry);  
 	  listOfCountries.add(chinaCountry);  
 	  listOfCountries.add(nepalCountry);  

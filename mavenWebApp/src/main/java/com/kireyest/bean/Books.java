@@ -1,14 +1,14 @@
 package com.kireyest.bean;
 
-public class Country {
+public class Books {
 	//Comment testtt
 	 int id;  
 	 String countryName;   
 	 double salary;
 	 
-	 public Country(){}
+	 public Books(){}
 	   
-	 public Country(int i, String countryName) {  
+	 public Books(int i, String countryName) {  
 	  super();  
 	  this.id = i;  
 	  this.countryName = countryName;  
